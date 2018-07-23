@@ -1,0 +1,68 @@
+2bdone at starting your node 
+bootnodelist 
+IP bootnodes
+
+
+
+
+These are instructions to run a SustainabilityChain POA in Linux
+
+make sure you have ethereum and geth installed:
+>geth version
+
+get the SustainabilityChain POA001 genesisfile here
+>git clone https://github.com/PoriniFoundation/SustainabilityChainPOA/
+go to that directory
+>cd SustainabilityChainPOA
+
+
+create a workspace for your node
+>mkdir node1
+>cd node1
+
+create an account with a good passwort 
+> geth --datadir node1/ account new
+Your new account is locked with a password. Please give a password. Do not forget this password.
+Passphrase: pwdnode123ThisShouldBeAGoodPassword (for example)
+Repeat passphrase: pwdnode123ThisShouldBeAGoodPassword
+Address: {87366ef81d4444edd0ea2055ca605e8686eec2ww}
+
+This creates the keystore/ folder containing your account file. 
+Notice that the last part of the file name in keystore/ is the address of your account (also printed in the terminal just above).
+
+Initialize the node with the correct parameters that are defined in genesis001.json
+>geth --datadir node1/ init files/genesis001.json
+
+initialize a bootnode to be detected
+>bootnode -genkey boot.key
+The bootnode is usually ran on a static IP and thus acts like a pub where nodes know they will find the other bootnodes
+
+start the bootnode service 
+>bootnode -nodekey boot.key -verbosity 9 -addr :30310
+INFO [02-07|22:44:09] UDP listener upself=enode://3ec4fef2d726c2c01f16f0a0030f15dd5a81e274067af2b2157cafbf76aa79fa9c0be52c6664e80cc5b08162ede53279bd70ee10d024fe86613b0b09e1106c40@[::]:30310
+if you want to share this ensure that you put your IP in here [::] like [123:4:5:67] 
+
+Feel free to use any port you like but please avoid the mainstream ones (like 80 for HTTP). 30303 is used for the public ethereum networks.
+
+in a new window
+start your node
+geth --datadir node1/ --syncmode 'full' --port 30311 --rpc --rpcaddr 'localhost' --rpcport 8501 --rpcapi 'personal,db,eth,net,web3,txpool,miner' --bootnodes 'enode://3ec4fef2d726c2c01f16f0a0030f15dd5a81e274067af2b2157cafbf76aa79fa9c0be52c6664e80cc5b08162ede53279bd70ee10d024fe86613b0b09e1106c40@127.0.0.1:30310' --networkid 19760307001 --gasprice '1' -unlock '87366ef81d4444edd0ea2055ca605e8686eec2ww' --password pwdnode123ThisShouldBeAGoodPassword --mine
+
+wait fo the blockchain to be synced
+check if it is synced 
+>geth attach node1/geth.ipc
+>>net
+make sure there is more than 0 nodes connected
+>>eth.syncing
+false
+if the response to the question syncing? is false then the chain is synced
+propose your address to be a authority sealer
+share your address with Porini Foundation and the other authorities so that we can accept your node using the same clique command
+>>clique.propose("0x...", true)
+
+MAKE SURE YOUR NODE IS ALWAYS ONLINE, OR INSTALL IT ON A FEW COMPUTERS SO THAT ALWAYS ONE OF THE SEALERS CONNECTED TO THIS ADDRESS IS ONLINE
+OTHERWISE IT ENDANGERS THE SEALING CAPACITY OF THE ENTIRE CHAIN WHERE ALWAYS n/2 + 1 NODE HAVE TO BE ONLINE TO ENABLE SEALING (WHICH IMPORTANT WHEN WE TALK ABOUT FEW AUTHORITIES E.G. N=3 THEN ALL THREE NODES HAVE TO BE ONLINE....
+e.g. use nohup to keep the node running
+
+
+
