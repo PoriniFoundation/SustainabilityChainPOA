@@ -1,42 +1,36 @@
-These are instructions to run a SustainabilityChain POA in Linux. 
-
-make sure you have Ethereum and geth installed
->geth version
-
-
-get the SustainabilityChain POA001 genesisfile here
+# fast version in Linux:
 >git clone https://github.com/PoriniFoundation/SustainabilityChainPOA/
-go to the directory SustainabilityChainPOA
 >cd SustainabilityChainPOA
+>c+x start.sh
+>sudo ./start.sh
 
-create a workspace for your node
->mkdir node1
+in a new terminal
+>geth attach SustainabilityChainPOA/node1/geth.ipc
+
+and when the javaconsole starts:
+
+>load scripts("files/scripts.js")
+>scripts()
 
 create an account with a good passwort 
-> geth --datadir node1/ account new
+
+personal.newAccount("pwdnode123ThisShouldBeAGoodPassword")
+
 Your new account is locked with a password. Please give a password. Do not forget this password. NOBODY CAN RESTORE THIS PASSWORD EVER.
-Passphrase: pwdnode123ThisShouldBeAGoodPassword (for example)
-Repeat passphrase: pwdnode123ThisShouldBeAGoodPassword (for example)
-Address: {87366ef81d4444edd0ea2055ca605e8686eec2ww}
+
 
 This creates the keystore/ folder containing your account file and your Ethereum adress. 
 Notice that the last part of the file name in keystore/ is the address of your account (also printed in the terminal just above).
 
-Initialize the node with the correct parameters that are defined in genesis001.json
->geth --datadir node1/ init files/genesis001.json
-
-Start geth with one of the existing bootnodes in phantom mode
->nohup geth --datadir ./ --syncmode 'full' --port 30411 --rpc --rpcaddr 'localhost' --rpcport 8551 --rpcaddr 0.0.0.0 --rpccorsdomain "*" --rpcapi 'personal,db,eth,net,web3,txpool,miner' --bootnodes 'enode://45edb69e3be951065f3425f9fe35591d52e906359e10dbaf1b7a2259c9772022b79831f2f9836d54d607ef837d319fc4f52cce991489ba9babd3602f2289e4eb@[52.59.201.140]:30411' --networkid 19760307001 
-
-in a new window start your node with the javaconsole
->geth attach SustainabilityChainPOA/node1/geth.ipc 
 
 check if it is synced 
->>net
+>net
 make sure there is more than 0 nodes connected
 
+>eth.blocknumer
+make sure it is not zero
 
->>eth.syncing
+>eth.syncing
 false
 if the response to the question syncing? is false then the chain is synced
 propose your address to be a authority sealer
