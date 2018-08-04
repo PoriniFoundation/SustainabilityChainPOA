@@ -10,8 +10,8 @@ in a new window open the javaconsole
 >geth attach SustainabilityChainPOA/node1/geth.ipc
 
 in the javaconsole connect to more bootnodes
->load scripts("../files/scripts/scripts.js")
->scripts()
+>load scripts("../files/scripts/start.js")
+>start.js()
 
 
 create an account with a good passwort 
