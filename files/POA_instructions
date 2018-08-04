@@ -5,14 +5,15 @@ IP bootnodes
 
 
 
-These are instructions to run a SustainabilityChain POA in Linux
+These are instructions to run a SustainabilityChain POA in Linux. 
 
-make sure you have ethereum and geth installed:
+make sure you have Ethereum and geth installed:
 >geth version
+
 
 get the SustainabilityChain POA001 genesisfile here
 >git clone https://github.com/PoriniFoundation/SustainabilityChainPOA/
-go to the directory
+go to the directory SustainabilityChainPOA
 >cd SustainabilityChainPOA
 
 
@@ -21,16 +22,19 @@ create a workspace for your node
 
 create an account with a good passwort 
 > geth --datadir node1/ account new
-Your new account is locked with a password. Please give a password. Do not forget this password.
+Your new account is locked with a password. Please give a password. Do not forget this password. NOBODY CAN RESTORE THIS PASSWORD EVER.
 Passphrase: pwdnode123ThisShouldBeAGoodPassword (for example)
-Repeat passphrase: pwdnode123ThisShouldBeAGoodPassword
+Repeat passphrase: pwdnode123ThisShouldBeAGoodPassword (for example)
 Address: {87366ef81d4444edd0ea2055ca605e8686eec2ww}
 
-This creates the keystore/ folder containing your account file. 
+This creates the keystore/ folder containing your account file and your Ethereum adress. 
 Notice that the last part of the file name in keystore/ is the address of your account (also printed in the terminal just above).
 
 Initialize the node with the correct parameters that are defined in genesis001.json
 >geth --datadir node1/ init files/genesis001.json
+
+
+
 
 initialize a bootnode to be detected
 >bootnode -genkey boot.key
