@@ -17,10 +17,9 @@ in the javaconsole connect to more bootnodes
 create an account with a good passwort 
 >personal.newAccount("pwdnode123ThisShouldBeAGoodPassword")
 
-Your new account is locked with a password. Please give a password. Do not forget this password. NOBODY CAN RESTORE THIS PASSWORD EVER.
-
+Your new account is locked with a password. Please find a good password. 
 This creates the keystore/ folder containing your account file and your Ethereum adress. 
-Notice that the last part of the file name in keystore/ is the address of your account (also printed in the terminal just above).
+Do not forget this password. NOBODY CAN RESTORE THIS PASSWORD EVER. Also make a backup of the UTC-....json file in the folder SustainabilityChain/node1/keystore
 
 
 check if the node is synced 
@@ -32,9 +31,14 @@ make sure it is not zero
 
 >eth.syncing
 false
-if the response to the question syncing? is false then the chain is synced
-propose your address to be a authority sealer
-share your address with Porini Foundation (info@porini.foundation) and the other authorities so that we can accept your node using the same clique command
+false is the good answer, it means the chain is is synced (if blocknumer>1)
+
+CONGRATULATIONS: TIME TO CELEBRATE, YOU RUN A NODE OF SUSTAINABILITY-CHAIN POA
+
+if you want to become a member of the alliance:
+
+propose your address to be a authority sealer using clique.propose
+at the moment (August 2018) you best share your address with Porini Foundation (info@porini.foundation) and the other authorities so that we can accept your node using the same clique command
 >>clique.propose("0x...", true)
 
 MAKE SURE YOUR NODE IS ALWAYS ONLINE, OR INSTALL IT ON A FEW COMPUTERS SO THAT ALWAYS ONE OF THE SEALERS CONNECTED TO THIS ADDRESS IS ONLINE
