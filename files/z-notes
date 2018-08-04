@@ -1,3 +1,7 @@
+These are notes from setting up the SustainabilityChain
+
+# Overview filestructure
+
 using tree -L 2
 
 SustainabilityChainPOA
@@ -18,4 +22,24 @@ SustainabilityChainPOA
 │   └── keystore
 └── README.md
 
+# Optional Bootnodes
+Optional when starting: initialize a bootnode to be detected
+>bootnode -genkey boot.key
+The bootnode is usually ran on a static IP and thus acts like a pub where nodes know they will find the other bootnodes
+
+start the bootnode service 
+>bootnode -nodekey boot.key -verbosity 9 -addr :30310
+INFO [02-07|22:44:09] UDP listener upself=enode://3ec4fef2d726c2c01f16f0a0030f15dd5a81e274067af2b2157cafbf76aa79fa9c0be52c6664e80cc5b08162ede53279bd70ee10d024fe86613b0b09e1106c40@[::]:30310
+if you want to share this ensure that you put your IP in here [::] like [123:4:5:67] 
+
+you don necessarily need to start the bootnode service - use one of the existing bootnodes - 
+Feel free to use any port you like but please avoid the mainstream ones (like 80 for HTTP). 30303 is used for the public ethereum networks.
+
+start nodes in all three directories to have all three adresses mining 
+geth --datadir node1/ init files/genesis001.json &&
+geth --datadir node2/ init files/genesis001.json &&
+geth --datadir node3/ init files/genesis001.json &&
+geth --datadir ./ --syncmode 'full' --port 30411 --rpc --rpcaddr 'localhost' --rpcport 8551 --rpcaddr 0.0.0.0 --rpccorsdomain "*" --rpcapi 'personal,db,eth,net,web3,txpool,miner' --bootnodes 'enode://45edb69e3be951065f3425f9fe35591d52e906359e10dbaf1b7a2259c9772022b79831f2f9836d54d607ef837d319fc4f52cce991489ba9babd3602f2289e4eb@[52.59.201.140]:30411' --networkid 19760307001 
+
+make sure they mine!
 
