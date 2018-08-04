@@ -1,6 +1,6 @@
 function loadBootnodes() {
 
-loadScript("scripts/bootnodes.js")
+loadScript("../files/scripts/bootnodes.js")
 
 for ( var i=0; i < bootnodes.length ; i=i+1)
 {
