@@ -1,7 +1,7 @@
 # fast version in Linux:
 >git clone https://github.com/PoriniFoundation/SustainabilityChainPOA/
 >cd SustainabilityChainPOA
->c+x start.sh
+>chmod u+x start.sh
 >sudo ./start.sh
 
 in a new terminal
