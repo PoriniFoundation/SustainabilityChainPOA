@@ -1,18 +1,27 @@
-#tutorial to run a node for SustainabilityChain proof of Authority/Alliance
+# tutorial to run a node for SustainabilityChain proof of Authority/Alliance
 
+1) make sure you have geth installed
+>geth version
+if you don't have it follow the tutorial here https://github.com/ethereum/go-ethereum/wiki/Installing-Geth
+
+2) get this repository
 >git clone https://github.com/PoriniFoundation/SustainabilityChainPOA/
 >cd SustainabilityChainPOA
 >mkdir node1
->geth --datadir node1/ init files/genesis001.json 
+
+3)initialize geth 
+>geth --datadir node1/ init files/genesis001.json
+
+4) start the node
 >nohup geth --datadir ./node1 --syncmode 'full' --port 30411 --rpc --rpcaddr 'localhost' --rpcport 8551 --rpcaddr 0.0.0.0 --rpccorsdomain "*" --rpcapi 'personal,db,eth,net,web3,txpool,miner' --bootnodes 'enode://45edb69e3be951065f3425f9fe35591d52e906359e10dbaf1b7a2259c9772022b79831f2f9836d54d607ef837d319fc4f52cce991489ba9babd3602f2289e4eb@[52.59.201.140]:30411' --networkid 19760307001 &&
 
+5) do some checks in the javaconsole
 in a new window open the javaconsole
 >geth attach SustainabilityChainPOA/node1/geth.ipc
 
-in the javaconsole connect to more bootnodes
+Optional:in the javaconsole connect to more bootnodes
 >load scripts("../files/scripts/start.js")
 >start.js()
-
 
 create an account with a good passwort 
 >personal.newAccount("pwdnode123ThisShouldBeAGoodPassword")
@@ -33,6 +42,7 @@ make sure it is not zero
 false
 false is the good answer, it means the chain is is synced (if blocknumer>1)
 
+6) CELEBRATE
 CONGRATULATIONS: TIME TO CELEBRATE, YOU RUN A NODE OF SUSTAINABILITY-CHAIN POA
 
 if you want to become a member of the alliance:
