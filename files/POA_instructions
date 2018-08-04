@@ -6,29 +6,26 @@
 >cd SustainabilityChainPOA
 >mkdir node1
 >geth --datadir node1/ init files/genesis001.json 
->nohup geth --datadir ./ --syncmode 'full' --port 30411 --rpc --rpcaddr 'localhost' --rpcport 8551 --rpcaddr 0.0.0.0 --rpccorsdomain "*" --rpcapi 'personal,db,eth,net,web3,txpool,miner' --bootnodes 'enode://45edb69e3be951065f3425f9fe35591d52e906359e10dbaf1b7a2259c9772022b79831f2f9836d54d607ef837d319fc4f52cce991489ba9babd3602f2289e4eb@[52.59.201.140]:30411' --networkid 19760307001 &&
+>nohup geth --datadir ./node1 --syncmode 'full' --port 30411 --rpc --rpcaddr 'localhost' --rpcport 8551 --rpcaddr 0.0.0.0 --rpccorsdomain "*" --rpcapi 'personal,db,eth,net,web3,txpool,miner' --bootnodes 'enode://45edb69e3be951065f3425f9fe35591d52e906359e10dbaf1b7a2259c9772022b79831f2f9836d54d607ef837d319fc4f52cce991489ba9babd3602f2289e4eb@[52.59.201.140]:30411' --networkid 19760307001 &&
 
-
-in a new terminal
+in a new window open the javaconsole
 >geth attach SustainabilityChainPOA/node1/geth.ipc
 
-and when the javaconsole starts:
-
->load scripts("files/scripts.js")
+in the javaconsole connect to more bootnodes
+>load scripts("../files/scripts.js")
 >scripts()
 
-create an account with a good passwort 
 
-personal.newAccount("pwdnode123ThisShouldBeAGoodPassword")
+create an account with a good passwort 
+>personal.newAccount("pwdnode123ThisShouldBeAGoodPassword")
 
 Your new account is locked with a password. Please give a password. Do not forget this password. NOBODY CAN RESTORE THIS PASSWORD EVER.
-
 
 This creates the keystore/ folder containing your account file and your Ethereum adress. 
 Notice that the last part of the file name in keystore/ is the address of your account (also printed in the terminal just above).
 
 
-check if it is synced 
+check if the node is synced 
 >net
 make sure there is more than 0 nodes connected
 
