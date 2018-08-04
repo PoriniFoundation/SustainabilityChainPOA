@@ -19,9 +19,3 @@ SustainabilityChainPOA
 └── README.md
 
 
-enode://8105cb5bd09134484139e6484e02afc9d54fe077621a510633d9a9038c7a051748557bbd8a906bb15d1225c72edf6406482b1fe7836527b7ead0ca35ddc615a3@[194.230.110.57]:30410
-
-geth --datadir node1/ --syncmode 'full' --port 30411 --rpc --rpcaddr 'localhost' --rpcport 8501 --rpcapi 'personal,db,eth,net,web3,txpool,miner' --bootnodes 'enode://8105cb5bd09134484139e6484e02afc9d54fe077621a510633d9a9038c7a051748557bbd8a906bb15d1225c72edf6406482b1fe7836527b7ead0ca35ddc615a3@[194.230.110.57]:30410' --networkid 19760307001 --gasprice '1' -unlock '0x2a613adbce663e5e5abd84ac35a273282df1673c' --mine
-geth --datadir node2/ --syncmode 'full' --port 30412 --rpc --rpcaddr 'localhost' --rpcport 8502 --rpcapi 'personal,db,eth,net,web3,txpool,miner' --bootnodes 'enode://8105cb5bd09134484139e6484e02afc9d54fe077621a510633d9a9038c7a051748557bbd8a906bb15d1225c72edf6406482b1fe7836527b7ead0ca35ddc615a3@[194.230.110.57]:30410' --networkid 19760307001 --gasprice '1' -unlock '0x4aea04e6860597060d74f27c546bfc7994284050' --mine
-geth --datadir node3/ --syncmode 'full' --port 30413 --rpc --rpcaddr 'localhost' --rpcport 8503 --rpcapi 'personal,db,eth,net,web3,txpool,miner' --bootnodes 'enode://8105cb5bd09134484139e6484e02afc9d54fe077621a510633d9a9038c7a051748557bbd8a906bb15d1225c72edf6406482b1fe7836527b7ead0ca35ddc615a3@[194.230.110.57]:30410' --networkid 19760307001 --gasprice '1' -unlock '0xf638eaa5fba42b7613451e2ae36c443863cfebcd' --mine
-
