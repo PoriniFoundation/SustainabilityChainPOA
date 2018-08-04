@@ -1,4 +1,4 @@
 funtion start() {
-loadScript("loadBootnodes.js");
+loadScript("../scripts/loadBootnodes.js");
 loadBootnodes;
 };
