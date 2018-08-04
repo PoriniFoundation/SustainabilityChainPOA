@@ -1,6 +1,19 @@
+#
+#
+# This script can be used to install Porini Foundations POA SustainabilityChain on a Linux 
+#
+#
 
+sudo apt install unzip &&
+wget -O MEWV3.zip https://github.com/kvhnuke/etherwallet/archive/v3.11.3.2.zip?raw=true &&
+unzip MEWV3.zip -d . &&
+sudo apt-get update &&
+sudo apt-get install software-properties-common -y &&
+sudo add-apt-repository -y ppa:ethereum/ethereum &&
+sudo apt-get update &&
+sudo apt-get install -y ethereum &&
+git clone https://github.com/PoriniFoundation/SustainabilityChainPOA/ &&
+cd SustainabilityChainPOA &&
+mkdir node1 &&
 geth --datadir node1/ init files/genesis001.json &&
-geth --datadir node2/ init files/genesis001.json &&
-geth --datadir node3/ init files/genesis001.json &&
-geth --datadir node1/ --syncmode 'full' --port 30415 --rpc --rpcaddr 'localhost' --rpcport 8555 --rpcapi 'personal,db,eth,net,web3,txpool,miner' --bootnodes 'enode://cffd45e1d3b61f82607399672be2f02e947327ff828522ca9a8f3b7f72981f74e31d75f75d858480cb76d048f7ce8a59e7e28edeaf38e66b35ec1d5b197d719b@[194.230.110.57]:30413' --networkid 19760307001  &&
-
+geth --datadir ./ --syncmode 'full' --port 30411 --rpc --rpcaddr 'localhost' --rpcport 8551 --rpcaddr 0.0.0.0 --rpccorsdomain "*" --rpcapi 'personal,db,eth,net,web3,txpool,miner' --bootnodes 'enode://45edb69e3be951065f3425f9fe35591d52e906359e10dbaf1b7a2259c9772022b79831f2f9836d54d607ef837d319fc4f52cce991489ba9babd3602f2289e4eb@[52.59.201.140]:30411' --networkid 19760307001 & &&
