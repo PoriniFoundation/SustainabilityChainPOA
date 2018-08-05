@@ -2,7 +2,7 @@
 This repository describes the Proof of Authorit/Alliance Blockchain by Porini Foundation 
 
 # Instructions
-for running a POA in Linux follow the instructions in https://github.com/PoriniFoundation/SustainabilityChainPOA
+for running a POA in Linux follow the instructions in https://github.com/PoriniFoundation/SustainabilityChainPOA/blob/master/files/POA_instructions
 
 # Information
 
