@@ -2,13 +2,15 @@
 This repository describes the Proof of Authorit/Alliance Blockchain by Porini Foundation 
 
 # Instructions
-for running a POA in Linux follow the instructions in https://github.com/PoriniFoundation/SustainabilityChainPOA/blob/master/files/POA_instructions
+for running a POA in Linux follow the instructions in https://github.com/PoriniFoundation/SustainabilityChainPOA
 
 # Information
 
 You can run a node to stabilize the blockchain 
 You can become an Alliance - Member by sharing your address with the other alliance members. Your node then becomes a validator as well.
 A the moment ideally you send a mail to info@porini.foundation
+
+If you want the POW - Low Energy solution please go to this repository: https://github.com/ScenicSwisscoast/SustainabiltyChain
 
 # More tech details
 
